@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Trip Calculator</title>
+  </head>
+  <body class="center">
+    <div class="dropdownBox">
+      <main class="calculator">
+        <form>
+          <div class="input-group">
+            <label for="carSelection">Select Car</label>
+            <select name="carSelection" id="carSelection"></select>
+          </div>
+          <div class="input-group">
+            <label for="tripMileage">Enter trip mileage</label>
+            <input type="number" name="tripMileage" id="tripMileage" />
+          </div>
+          <div class="input-group">
+            <label for="avgGasPrice">Enter avg price of gas</label>
+            <input type="number" name="avgGasPrice" id="avgGasPrice" />
+          </div>
+          <div class="input-group">
+            <label for="numPeople">Enter number of people</label>
+            <input type="number" name="numPeople" id="numPeople" />
+          </div>
+          <button class="btnCalculate">Calculate</button>
+        </form>
+      </main>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

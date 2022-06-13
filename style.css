@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&display=swap");
+:root {
+  /* custom colors */
+  --cc-primary: hsl(184, 58%, 52%);
+  --cc-accent: hsl(154, 66%, 55%);
+  --cc-bkgrnd: hsl(184, 94%, 97%);
+  --cc-text: hsl(184, 58%, 10%);
+  --cc-error: hsl(0, 94%, 65%);
+
+  /* font styles */
+  --ff-main: "Roboto Condensed", sans-serif;
+  --fw-reg: 400;
+  --fw-bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-main);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--cc-bkgrnd);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background: var(--cc-primary);
+  height: calc(100vh * 0.9);
+  width: calc(100vw * 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background: #ccc;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+}
+
+.input-group {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select {
+  padding: 5px 10px;
+  border: none;
+  background: var(--cc-bkgrnd);
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  background: var(--cc-accent);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+}
+
+.error {
+  position: relative;
+}
+
+.error input {
+  border: 2px solid var(--cc-error);
+}
+
+.error::before {
+  content: "Can't be zero";
+  position: absolute;
+  right: 0;
+  color: var(--cc-error);
+  font-style: italic;
+}
