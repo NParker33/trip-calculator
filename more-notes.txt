@@ -1,0 +1,14 @@
+*NOTE: For the actual formula, the tank/number of tanks won't matter. That's purely for visualization purposes. Only the actual milleage is required (Tallahassee => Jacksonville = 177 miles * 2 trips = 354 miles)
+
+Filling up at around $4.50 per gallon costs about (17.1 gallons * $4.50) $76.50. *NOTE: This may not matter either. Only focus on milleage and gallons.
+
+Farthest you can go on one tank of gas: mpg * tanksize => 22mpg * 17.1 = 376.2;
+
+End goal: how much money will you end up spending on gas? 
+
+How are you determining how much gas to get? 
+	1) How long is the trip? 177 miles, 354 miles round trip
+	2) 
+
+? Calculate the price of a full tank of gas, then use a percentage to figure out how much each trip will be?? That may also be the maxMiles that I've been trying to calculate. 
+

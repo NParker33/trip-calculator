@@ -4,33 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
     <title>Trip Calculator</title>
   </head>
   <body class="center">
-    <div class="dropdownBox">
-      <main class="calculator">
-        <form>
-          <div class="input-group">
-            <label for="carSelection">Select Car</label>
-            <select name="carSelection" id="carSelection"></select>
-          </div>
-          <div class="input-group">
-            <label for="tripMileage">Enter trip mileage</label>
-            <input type="number" name="tripMileage" id="tripMileage" />
-          </div>
-          <div class="input-group">
-            <label for="avgGasPrice">Enter avg price of gas</label>
-            <input type="number" name="avgGasPrice" id="avgGasPrice" />
-          </div>
-          <div class="input-group">
-            <label for="numPeople">Enter number of people</label>
-            <input type="number" name="numPeople" id="numPeople" />
-          </div>
-          <button class="btnCalculate">Calculate</button>
-        </form>
-      </main>
-    </div>
+    <header class="header">
+      <h1>Trip Calculator</h1>
+    </header>
+    <main class="calculator">
+      <form class="calculator__form">
+        <div class="calculator__input-group">
+          <label for="carSelection">Select Car</label>
+          <select name="carSelection" id="carSelection"></select>
+        </div>
+        <div class="calculator__input-group">
+          <label for="tripMileage">Enter trip mileage</label>
+          <input type="number" name="tripMileage" id="tripMileage" />
+        </div>
+        <div class="calculator__input-group">
+          <label for="avgGasPrice">Enter avg price of gas</label>
+          <input type="number" name="avgGasPrice" id="avgGasPrice" />
+        </div>
+        <div class="calculator__input-group">
+          <label for="numPeople">Enter number of people</label>
+          <input type="number" name="numPeople" id="numPeople" />
+        </div>
+      </form>
+      <div class="calculator__results">
+        <div class="calculator__result">
+          <p>Total</p>
+          <p class="pricing">$0.00</p>
+        </div>
+        <div class="calculator__result">
+          <p>Total <span>/person</span></p>
+          <p class="pricing">$0.00</p>
+        </div>
+        <button class="btn btn--calculate">Calculate</button>
+        <!-- <button class="btn btn--start-over">Start Over</button> -->
+      </div>
+    </main>
     <script src="main.js"></script>
   </body>
 </html>

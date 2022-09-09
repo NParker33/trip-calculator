@@ -1,0 +1,10 @@
+1. Multiply trip mileage by 2 (for trip to and from)
+2. Trip / mpg = gallonsRequired
+3. gallonsRequired / car.tanksize = fillUpsRequired
+4. fillUpsRequired * avgGas = gasPrice
+5. gasPrice / numPeople = gasPerPerson
+
+
+The purpose of this app is to calculate how much it would be to take a roadtrip and split the cost between a certain amount of people. The app will also help the user decide what car is the best option to take based on mileage and pricing. 
+
+In the future, I would like to implement using a map to select the start/end destination and automatically calculate the mileage instead of the user having to calculate it. 

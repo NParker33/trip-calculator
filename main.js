@@ -4,42 +4,45 @@ const inputTripMileage = document.querySelector("#tripMileage");
 const inputAvgGas = document.querySelector("#avgGasPrice");
 const inputNumPeople = document.querySelector("#numPeople");
 
-const btnCalculate = document.querySelector(".btnCalculate");
-// car objects
-// each car should contain information regarding: make, model, year, MPG, fuel tank size
+const [totalEl, totalPerPersonEl] = document.querySelectorAll(".pricing");
 
-const acura = {
-  make: "Acura",
-  model: "TSX",
-  year: 2007,
-  mpg: 31,
-  tankSize: 17.1,
-};
-const honda = {
-  make: "Honda",
-  model: "Accord",
-  year: 2012,
-  mpg: 34,
-  tankSize: 18.5,
-};
-const nissan = {
-  make: "Nissan",
-  model: "Murano",
-  year: 2012,
-  mpg: 24,
-  tankSize: 21.7,
+const btnCalculate = document.querySelector(".btn--calculate");
+
+// Functions
+const calcAvg = (x, y) => (x + y) / 2;
+
+const checkInput = (val, field) => {
+  if (val === 0) {
+    field.parentElement.classList.add("error");
+    setTimeout(() => field.parentElement.classList.remove("error"), 3000);
+  }
+  return val !== 0;
 };
 
-const mercedes = {
-  make: "Mercedes-Benz",
-  model: "E350",
-  year: 2015,
-  mpg: 42,
-  tankSize: 17.4,
+const updateResults = function (total, split) {
+  totalEl.textContent = `$${total.toFixed(2)}`;
+  totalPerPersonEl.textContent = `$${split.toFixed(2)}`;
 };
+
+// Car constructor
+function Car(make, model, year, cityMPG, highwayMPG) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.cityMPG = cityMPG;
+  this.highwayMPG = highwayMPG;
+  this.mpg = calcAvg(this.cityMPG, this.highwayMPG);
+}
+
+// Cars
+const acura = new Car("Acura", "TSX", 2007, 22, 31);
+const honda = new Car("Honda", "Accord", 2012, 23, 34);
+const nissan = new Car("Nissan", "Murano", 2012, 18, 24);
+const mercedes = new Car("Mercedes-Benz", "E350", 2015, 28, 42);
 
 const cars = [acura, honda, nissan, mercedes];
 
+// Populate car dropdown
 cars.forEach(car => {
   const carInfo = `${car.year} ${car.make} ${car.model}`;
   inputDropdown.innerHTML += `<option value="${car.make}">${carInfo}</option>`;
@@ -52,24 +55,21 @@ btnCalculate.addEventListener("click", function (e) {
   const avgGas = +inputAvgGas.value;
   const numPeople = +inputNumPeople.value;
 
+  // Check that fields are valid
   const isValidMileage = checkInput(tripMileage, inputTripMileage);
   const isValidGas = checkInput(avgGas, inputAvgGas);
   const isValidPeople = checkInput(numPeople, inputNumPeople);
 
-  //   console.log(!isValidMileage && !isValidGas && !isValidPeople && "All fields valid");
+  // Calculate trip price
+  if (isValidMileage && isValidGas && isValidPeople) {
+    // Get gas price
+    const gallonsRequired = +(tripMileage / selectedCar.mpg);
+    const totalGasPrice = +(gallonsRequired * avgGas);
 
-  //   if (numPeople === 0) {
-  //     inputNumPeople.parentElement.classList.add("error");
-  //     setTimeout(function () {
-  //       inputNumPeople.parentElement.classList.remove("error");
-  //     }, 3000);
-  //   }
-});
+    // Split price among people
+    const splitPrice = totalGasPrice / numPeople;
 
-const checkInput = (val, field) => {
-  if (val === 0) {
-    field.parentElement.classList.add("error");
-    setTimeout(() => field.parentElement.classList.remove("error"), 3000);
+    // Update results
+    updateResults(totalGasPrice, splitPrice);
   }
-  return val === 0;
-};
+});
